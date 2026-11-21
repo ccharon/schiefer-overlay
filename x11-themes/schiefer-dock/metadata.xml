@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription lang="en">Plasma widgets in the style of the CDE front panel: drawers, console, icon box, status tiles.</longdescription>
+	<upstream>
+		<remote-id type="github">ccharon/kde-schiefer-theme</remote-id>
+	</upstream>
+</pkgmetadata>
