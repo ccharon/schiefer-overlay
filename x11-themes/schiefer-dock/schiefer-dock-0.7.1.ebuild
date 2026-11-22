@@ -55,8 +55,10 @@ src_install() {
 pkg_postinst() {
 	elog "After installing or updating: systemctl --user restart plasma-plasmashell"
 	elog
-	elog "Build the panels (dock at the bottom, icon box on the left, status tiles at the top right)."
-	elog "WARNING: removes existing panels at the bottom, left and right!"
+	elog "The global theme Schiefer builds the panels (dock at the bottom, icon box on the left,"
+	elog "status tiles at the top right) with \"Desktop and window layout\" checked; the panel"
+	elog "template \"Schiefer Front Panel\" is also listed under \"Add Panel\"."
+	elog "Or by script. WARNING: removes existing panels at the bottom, left and right!"
 	elog "  qdbus6 org.kde.plasmashell /PlasmaShell evaluateScript \"\$(cat ${EPREFIX}/usr/share/schiefer/dock/layout.js)\""
 	elog
 	elog "Only add the end pieces to an existing dock:"
