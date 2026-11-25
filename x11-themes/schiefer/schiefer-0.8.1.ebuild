@@ -14,6 +14,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64 arm64"
 RESTRICT="test"
+IUSE="plymouth"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # schiefer-config calls kreadconfig6/kwriteconfig6, qdbus6 and plasma-apply-*
@@ -27,6 +28,7 @@ RDEPEND="
 	~x11-themes/schiefer-icons-${PV}
 	~x11-themes/schiefer-kde-${PV}
 	~x11-themes/schiefer-themes-${PV}
+	plymouth? ( ~x11-themes/schiefer-plymouth-${PV} )
 "
 
 src_prepare() {

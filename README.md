@@ -15,12 +15,13 @@ emerge -av x11-themes/schiefer
 
 | Package | Content |
 |---|---|
-| `x11-themes/schiefer` | global theme, lock screen, SDDM theme, `schiefer-config`; pulls in all packages below |
+| `x11-themes/schiefer` | global theme, lock screen, SDDM theme, `schiefer-config`; pulls in the packages below |
 | `x11-themes/schiefer-kde` | window decoration and Qt widget style |
 | `x11-themes/schiefer-icons` | icons, generated from the installed breeze-icons at build time |
 | `x11-themes/schiefer-themes` | color schemes, Plasma style, GTK theme, cursors, window switcher, image wallpaper |
 | `x11-themes/schiefer-dock` | dock widgets in the style of the CDE front panel |
 | `x11-themes/schiefer-backdrop` | wallpaper plugin with a pattern and color per virtual desktop |
+| `x11-themes/schiefer-plymouth` | Plymouth boot screen; pulled in by `x11-themes/schiefer` with USE `plymouth` |
 
 Keywords: `amd64`, `arm64`. Requires Plasma 6.
 

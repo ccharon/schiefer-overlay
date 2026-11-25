@@ -5,7 +5,7 @@ EAPI=8
 PYTHON_COMPAT=( python3_{11..14} )
 inherit python-any-r1
 
-DESCRIPTION="Schiefer: color schemes, Plasma style, GTK theme, cursors, window switcher and wallpaper in Motif/CDE style"
+DESCRIPTION="Schiefer: color schemes, Plasma style, GTK theme, cursors, window switcher, wallpaper, Konsole colors and mc skin in Motif/CDE style"
 SRC_URI="https://github.com/ccharon/kde-schiefer-theme/releases/download/v${PV}/schiefer-${PV}.tar.xz"
 HOMEPAGE="https://github.com/ccharon/kde-schiefer-theme"
 S="${WORKDIR}/schiefer-${PV}"
@@ -61,12 +61,22 @@ src_install() {
 	exeinto /usr/share/schiefer/wallpaper
 	doexe wallpaper/apply.sh
 	dosym -r /usr/share/schiefer/wallpaper/apply.sh /usr/bin/schiefer-wallpaper
+
+	# Konsole color scheme and profile, Midnight Commander skin (the profile selects it via MC_SKIN)
+	insinto /usr/share/konsole
+	doins konsole/Schiefer.colorscheme konsole/Schiefer.profile
+	insinto /usr/share/mc/skins
+	newins konsole/mc-schiefer.ini schiefer.ini
 }
 
 pkg_postinst() {
 	elog "GTK theme: System Settings > Application Style > GTK Theme > Schiefer"
 	elog "Cursors: System Settings > Cursors > Schiefer"
 	elog "Window switcher: System Settings > Window Management > Task Switcher > Schiefer"
+	elog "Konsole: Settings > Configure Konsole > Profiles > Schiefer > Set as Default,"
+	elog "  or only the colors: Edit Profile > Appearance > Color scheme Schiefer"
+	elog "Midnight Commander: the Schiefer profile sets MC_SKIN=schiefer; elsewhere (root) put"
+	elog "  skin=schiefer into [Midnight-Commander] of ~/.config/mc/ini"
 	elog "Pixel-exact image wallpaper for any resolution: schiefer-wallpaper [pattern]"
 	elog "(pattern per virtual desktop: package x11-themes/schiefer-backdrop)"
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<longdescription lang="en">Plymouth boot screen in the style of a workstation console: machine banner, systemd units as they start, progress bar, passphrase prompt.</longdescription>
+	<upstream>
+		<remote-id type="github">ccharon/kde-schiefer-theme</remote-id>
+	</upstream>
+</pkgmetadata>
