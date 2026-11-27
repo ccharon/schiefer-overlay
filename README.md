@@ -21,7 +21,15 @@ emerge -av x11-themes/schiefer
 | `x11-themes/schiefer-themes` | color schemes, Plasma style, GTK theme, cursors, window switcher, image wallpaper |
 | `x11-themes/schiefer-dock` | dock widgets in the style of the CDE front panel |
 | `x11-themes/schiefer-backdrop` | wallpaper plugin with a pattern and color per virtual desktop |
-| `x11-themes/schiefer-plymouth` | Plymouth boot screen; pulled in by `x11-themes/schiefer` with USE `plymouth` |
+| `x11-themes/schiefer-plymouth` | Plymouth boot screen and dracut module |
+
+### USE flags
+
+`x11-themes/schiefer` pulls in each part through a USE flag of the same name: `backdrop`, `dock`, `icons`, `kde`, `plymouth`, `themes`. All are enabled by default. To leave a part out, for example the boot screen:
+
+```bash
+echo "x11-themes/schiefer -plymouth" >> /etc/portage/package.use/schiefer
+```
 
 Keywords: `amd64`, `arm64`. Requires Plasma 6.
 

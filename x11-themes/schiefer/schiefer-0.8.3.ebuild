@@ -14,7 +14,7 @@ LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64 arm64"
 RESTRICT="test"
-IUSE="plymouth"
+IUSE="+backdrop +dock +icons +kde +plymouth +themes"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # schiefer-config calls kreadconfig6/kwriteconfig6, qdbus6 and plasma-apply-*
@@ -23,12 +23,12 @@ RDEPEND="
 	dev-qt/qttools:6[qdbus]
 	kde-frameworks/kconfig:6
 	kde-plasma/plasma-workspace:6
-	~x11-themes/schiefer-backdrop-${PV}
-	~x11-themes/schiefer-dock-${PV}
-	~x11-themes/schiefer-icons-${PV}
-	~x11-themes/schiefer-kde-${PV}
-	~x11-themes/schiefer-themes-${PV}
+	backdrop? ( ~x11-themes/schiefer-backdrop-${PV} )
+	dock? ( ~x11-themes/schiefer-dock-${PV} )
+	icons? ( ~x11-themes/schiefer-icons-${PV} )
+	kde? ( ~x11-themes/schiefer-kde-${PV} )
 	plymouth? ( ~x11-themes/schiefer-plymouth-${PV} )
+	themes? ( ~x11-themes/schiefer-themes-${PV} )
 "
 
 src_prepare() {

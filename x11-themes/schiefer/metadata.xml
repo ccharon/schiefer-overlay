@@ -2,6 +2,14 @@
 <!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 	<longdescription lang="en">Schiefer: Motif/CDE look for KDE Plasma based on Breeze (meta package).</longdescription>
+	<use>
+		<flag name="backdrop">Pull in <pkg>x11-themes/schiefer-backdrop</pkg>: wallpaper plugin with a pattern and color per virtual desktop</flag>
+		<flag name="dock">Pull in <pkg>x11-themes/schiefer-dock</pkg>: dock widgets in the style of the CDE front panel</flag>
+		<flag name="icons">Pull in <pkg>x11-themes/schiefer-icons</pkg>: Breeze icons in muted CDE/Motif colors</flag>
+		<flag name="kde">Pull in <pkg>x11-themes/schiefer-kde</pkg>: window decoration and Qt widget style</flag>
+		<flag name="plymouth">Pull in <pkg>x11-themes/schiefer-plymouth</pkg>: boot screen (Plymouth theme and dracut module)</flag>
+		<flag name="themes">Pull in <pkg>x11-themes/schiefer-themes</pkg>: color schemes, Plasma style, GTK theme, cursors, window switcher, wallpaper, Konsole colors</flag>
+	</use>
 	<upstream>
 		<remote-id type="github">ccharon/kde-schiefer-theme</remote-id>
 	</upstream>
