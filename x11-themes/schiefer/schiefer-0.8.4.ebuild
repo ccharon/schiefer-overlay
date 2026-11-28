@@ -70,9 +70,10 @@ pkg_postinst() {
 	elog "Toggle single Motif features and switch palettes:"
 	elog "  schiefer-config list"
 	elog "  schiefer-config defaults        (all options to the Schiefer defaults, for example after the global theme)"
-	elog "  schiefer-config palette basalt  (palettes: schiefer, sandstein, jade, granit, basalt)"
+	elog "  schiefer-config palette basalt  (palettes: schiefer, broica, sandstein, jade, granit, basalt)"
 	elog
 	elog "Lock screen (per user):    schiefer-config lockscreen on"
 	elog "Login (SDDM, all users):   System Settings > Login Screen (SDDM) > Schiefer"
 	elog "  or /etc/sddm.conf.d/...: [Theme] Current=schiefer"
+	elog "Palette of login and boot screen: sudo schiefer-config system-palette broica"
 }

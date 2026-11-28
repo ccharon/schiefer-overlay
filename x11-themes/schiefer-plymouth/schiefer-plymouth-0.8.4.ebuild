@@ -17,7 +17,11 @@ RDEPEND="sys-boot/plymouth"
 
 src_install() {
 	insinto /usr/share/plymouth/themes/schiefer
-	doins schiefer/*.png schiefer/schiefer.plymouth schiefer/schiefer.script.in
+	doins schiefer/schiefer.plymouth schiefer/schiefer.script.in
+	# image sets of all palettes; schiefer-plymouth-info copies the one of the system palette
+	# to /var/lib/schiefer/plymouth/images, so the initramfs only gets that one
+	insinto /usr/share/schiefer/plymouth
+	doins -r palettes/.
 
 	exeinto /usr/libexec/schiefer
 	doexe schiefer-plymouth-info
@@ -29,9 +33,11 @@ src_install() {
 }
 
 pkg_postinst() {
-	# the script with the machine details; dracut rewrites it for every initramfs
+	# the script with the machine details and the images of the system palette; dracut rewrites
+	# both for every initramfs
 	"${EROOT}"/usr/libexec/schiefer/schiefer-plymouth-info \
 		--template "${EROOT}"/usr/share/plymouth/themes/schiefer/schiefer.script.in \
+		--palettes "${EROOT}"/usr/share/schiefer/plymouth \
 		--out "${EROOT}"/var/lib/schiefer/plymouth/schiefer.script \
 		|| ewarn "could not write ${EROOT}/var/lib/schiefer/plymouth/schiefer.script"
 
@@ -39,8 +45,9 @@ pkg_postinst() {
 	elog "  plymouth-set-default-theme -R schiefer"
 	elog "The kernel command line needs \"splash\" (and usually \"quiet\")."
 	elog "Back to a previous theme, for example: plymouth-set-default-theme -R bgrt"
+	elog "Colors: the system palette (schiefer-config system-palette), after the next initramfs build"
 }
 
 pkg_postrm() {
-	[[ -z ${REPLACED_BY_VERSION} ]] && rm -f "${EROOT}"/var/lib/schiefer/plymouth/schiefer.script
+	[[ -z ${REPLACED_BY_VERSION} ]] && rm -rf "${EROOT}"/var/lib/schiefer/plymouth/{schiefer.script,images}
 }

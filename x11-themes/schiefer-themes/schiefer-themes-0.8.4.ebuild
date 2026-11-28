@@ -35,7 +35,7 @@ src_compile() {
 }
 
 src_install() {
-	# palettes Schiefer, Sandstein, Jade, Granit, Basalt (switch with: schiefer-config palette <name>)
+	# palettes Schiefer, Broica, Sandstein, Jade, Granit, Basalt (switch with: schiefer-config palette <name>)
 	insinto /usr/share/color-schemes
 	doins colors/*.colors
 
@@ -62,9 +62,9 @@ src_install() {
 	doexe wallpaper/apply.sh
 	dosym -r /usr/share/schiefer/wallpaper/apply.sh /usr/bin/schiefer-wallpaper
 
-	# Konsole color scheme and profile, Midnight Commander skin (the profile selects it via MC_SKIN)
+	# Konsole color schemes and profiles, Midnight Commander skin (the profiles select it via MC_SKIN)
 	insinto /usr/share/konsole
-	doins konsole/Schiefer.colorscheme konsole/Schiefer.profile
+	doins konsole/Schiefer{,Broica}.{colorscheme,profile}
 	insinto /usr/share/mc/skins
 	newins konsole/mc-schiefer.ini schiefer.ini
 }
@@ -73,9 +73,9 @@ pkg_postinst() {
 	elog "GTK theme: System Settings > Application Style > GTK Theme > Schiefer"
 	elog "Cursors: System Settings > Cursors > Schiefer"
 	elog "Window switcher: System Settings > Window Management > Task Switcher > Schiefer"
-	elog "Konsole: Settings > Configure Konsole > Profiles > Schiefer > Set as Default,"
-	elog "  or only the colors: Edit Profile > Appearance > Color scheme Schiefer"
-	elog "Midnight Commander: the Schiefer profile sets MC_SKIN=schiefer; elsewhere (root) put"
+	elog "Konsole: Settings > Configure Konsole > Profiles > Schiefer (or Schiefer Broica) > Set as Default,"
+	elog "  or only the colors: Edit Profile > Appearance > Color scheme Schiefer or Schiefer Broica"
+	elog "Midnight Commander: both profiles set MC_SKIN=schiefer; elsewhere (root) put"
 	elog "  skin=schiefer into [Midnight-Commander] of ~/.config/mc/ini"
 	elog "Pixel-exact image wallpaper for any resolution: schiefer-wallpaper [pattern]"
 	elog "(pattern per virtual desktop: package x11-themes/schiefer-backdrop)"
